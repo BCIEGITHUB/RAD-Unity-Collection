@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701692cd5f32395408de7469e5db20d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeTemplate: {fileID: 6471875164567089585, guid: cc542bca9eed283419c476f8751470fe, type: 3}
 --- !u!135 &746138742
 SphereCollider:
   m_ObjectHideFlags: 0
