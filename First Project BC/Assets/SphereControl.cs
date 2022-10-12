@@ -5,6 +5,7 @@ using UnityEngine;
 public class SphereControl : MonoBehaviour
 {
     private float turningSpeed =180;
+    public Transform cubeTemplate;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,10 @@ public class SphereControl : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             transform.Rotate(Vector3.left, -turningSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Instantiate(cubeTemplate, transform.position - transform.forward, Quaternion.identity);
         }
 
     }
