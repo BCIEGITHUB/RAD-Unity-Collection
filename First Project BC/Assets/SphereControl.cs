@@ -5,30 +5,31 @@ using UnityEngine;
 public class SphereControl : MonoBehaviour
 {
     private float turningSpeed =180;
-    public Transform PC; 
+    public Transform PC;
+    Rigidbody playerrigidbody;
     //public Transform cubeTemplate;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerrigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow))
-            transform.position += transform.forward * Time.deltaTime;
+            transform.position += transform.forward * 4 * Time.deltaTime;
         if (Input.GetKey(KeyCode.DownArrow))
-           transform.position -= transform.forward * Time.deltaTime;
+           transform.position -= transform.forward * 2 * Time.deltaTime;
         if (Input.GetKey(KeyCode.LeftArrow))
-            transform.position += Vector3.left * Time.deltaTime;
+            transform.position -= transform.right * 3 * Time.deltaTime;
         if (Input.GetKey(KeyCode.RightArrow))
-            transform.position += Vector3.right * Time.deltaTime;
+            transform.position += transform.right * 3 * Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
-            transform.position += Vector3.up * Time.deltaTime;
+            transform.position += transform.up * Time.deltaTime;
         if (Input.GetKey(KeyCode.C))
-            transform.position -= Vector3.up * Time.deltaTime;
+            transform.position -= transform.up * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.up, -turningSpeed * Time.deltaTime);
@@ -39,9 +40,9 @@ public class SphereControl : MonoBehaviour
         }
        
         
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.L))
         {
-            //ExplosionForce
+            playerrigidbody.AddExplosionForce(10000000, transform.position, 60);
         }
         
 
