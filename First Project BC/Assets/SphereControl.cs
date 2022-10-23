@@ -38,12 +38,7 @@ public class SphereControl : MonoBehaviour
         {
             transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
         }
-       
-        
-        if (Input.GetKey(KeyCode.L))
-        {
-            playerrigidbody.AddExplosionForce(10000000, transform.position, 60);
-        }
+      
         
 
     }
