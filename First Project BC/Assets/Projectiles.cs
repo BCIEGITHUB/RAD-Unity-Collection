@@ -6,7 +6,7 @@ public class Projectiles : MonoBehaviour
 {
     
     float projectilespeed = 10f;
-    public GameObject projectile;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +16,7 @@ public class Projectiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += projectilespeed * transform.forward * Time.deltaTime;
-        if (Input.GetKey(KeyCode.P))
-        {
-            Instantiate(projectile);
-        }
+        transform.position += projectilespeed * Vector3.forward * 3 * Time.deltaTime;
+        
     }
 }
