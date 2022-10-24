@@ -7,6 +7,7 @@ public class SphereControl : MonoBehaviour
     private float turningSpeed =180;
     public Transform PC;
     Rigidbody playerrigidbody;
+    public GameObject projectile;
     //public Transform cubeTemplate;
 
     // Start is called before the first frame update
@@ -38,6 +39,34 @@ public class SphereControl : MonoBehaviour
         {
             transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
         }
+        if (Input.GetKey(KeyCode.P))
+        {
+            Instantiate(projectile, transform.position, transform.rotation);
+        }
+        //Following code was inspired by:https://gamedev.stackexchange.com/questions/63746/unity-addexplosionforce-not-doing-anything
+        if (Input.GetKey(KeyCode.F))
+        {
+            Force();
+        }
+        void Force()
+        {
+            Vector3 explosion = transform.position;
+            Collider[] colliders = Physics.OverlapSphere(explosion, 25f);
+
+            foreach(Collider hit in colliders)
+            {
+                if (!hit)
+                {
+                    continue;
+                }
+
+                if(hit.attachedRigidbody)
+                {
+                    hit.attachedRigidbody.AddExplosionForce(2000f, explosion, 20f);
+                }
+            }
+        }
+        //End of inspired Code
       
         
 
