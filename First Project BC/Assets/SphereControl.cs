@@ -28,9 +28,7 @@ public class SphereControl : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             transform.position += transform.right * 3 * Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
-            transform.position += transform.up * Time.deltaTime;
-        if (Input.GetKey(KeyCode.C))
-            transform.position -= transform.up * Time.deltaTime;
+            playerrigidbody.AddForce(Vector3.up * 3000000, ForceMode.Force);
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.up, -turningSpeed * Time.deltaTime);
